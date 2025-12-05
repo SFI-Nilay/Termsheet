@@ -1,0 +1,24 @@
+\doxysection{parser.\+py File Reference}
+\hypertarget{parser_8py}{}\label{parser_8py}\index{parser.py@{parser.py}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceparser}{parser}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Dict \mbox{\hyperlink{namespaceparser_a34d250abe9dac9c81e16665c6e909eb2}{parser.\+build\+\_\+tfidf\+\_\+index}} (List\mbox{[}Dict\mbox{]} chunks)
+\item 
+List\mbox{[}int\mbox{]} \mbox{\hyperlink{namespaceparser_aad5672a986c6d407f5b31c17a8c05b91}{parser.\+retrieve\+\_\+top\+\_\+k}} (str query, Dict index, int k=5)
+\item 
+str \mbox{\hyperlink{namespaceparser_a0b12654d06f7ea83a3ec6c38db346f93}{parser.\+assemble\+\_\+context}} (List\mbox{[}Dict\mbox{]} chunks, List\mbox{[}int\mbox{]} top\+\_\+indices)
+\item 
+Dict \mbox{\hyperlink{namespaceparser_acab60c601c5aac8781ad0a5e62d95b66}{parser.\+call\+\_\+groq}} (str model, List\mbox{[}Dict\mbox{]} messages, float temperature=0.\+0, int max\+\_\+retries=3)
+\item 
+List\mbox{[}Dict\mbox{]} \mbox{\hyperlink{namespaceparser_a9dd2796b938536ca8fb63b5423bba479}{parser.\+parse\+\_\+with\+\_\+llm}} (List\mbox{[}Dict\mbox{]} chunks, str prompts\+\_\+path, str groq\+\_\+model, int top\+\_\+k=5)
+\item 
+List\mbox{[}Dict\mbox{]} \mbox{\hyperlink{namespaceparser_a32f3e62367c5448782f49bb710f41055}{parser.\+parse\+\_\+with\+\_\+llm\+\_\+gemini}} (List\mbox{[}Dict\mbox{]} chunks, str prompts\+\_\+path, str gemini\+\_\+model, int top\+\_\+k=5)
+\item 
+Dict \mbox{\hyperlink{namespaceparser_ab69cb3397febf36cea543c2f952d44de}{parser.\+call\+\_\+gemini}} (str model\+\_\+gemini, List\mbox{[}Dict\mbox{]} messages, float temperature=0.\+0, int max\+\_\+retries=3)
+\end{DoxyCompactItemize}

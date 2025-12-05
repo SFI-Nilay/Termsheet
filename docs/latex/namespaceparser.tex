@@ -1,0 +1,94 @@
+\doxysection{parser Namespace Reference}
+\hypertarget{namespaceparser}{}\label{namespaceparser}\index{parser@{parser}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Dict \mbox{\hyperlink{namespaceparser_a34d250abe9dac9c81e16665c6e909eb2}{build\+\_\+tfidf\+\_\+index}} (List\mbox{[}Dict\mbox{]} chunks)
+\item 
+List\mbox{[}int\mbox{]} \mbox{\hyperlink{namespaceparser_aad5672a986c6d407f5b31c17a8c05b91}{retrieve\+\_\+top\+\_\+k}} (str query, Dict index, int k=5)
+\item 
+str \mbox{\hyperlink{namespaceparser_a0b12654d06f7ea83a3ec6c38db346f93}{assemble\+\_\+context}} (List\mbox{[}Dict\mbox{]} chunks, List\mbox{[}int\mbox{]} top\+\_\+indices)
+\item 
+Dict \mbox{\hyperlink{namespaceparser_acab60c601c5aac8781ad0a5e62d95b66}{call\+\_\+groq}} (str model, List\mbox{[}Dict\mbox{]} messages, float temperature=0.\+0, int max\+\_\+retries=3)
+\item 
+List\mbox{[}Dict\mbox{]} \mbox{\hyperlink{namespaceparser_a9dd2796b938536ca8fb63b5423bba479}{parse\+\_\+with\+\_\+llm}} (List\mbox{[}Dict\mbox{]} chunks, str prompts\+\_\+path, str groq\+\_\+model, int top\+\_\+k=5)
+\item 
+List\mbox{[}Dict\mbox{]} \mbox{\hyperlink{namespaceparser_a32f3e62367c5448782f49bb710f41055}{parse\+\_\+with\+\_\+llm\+\_\+gemini}} (List\mbox{[}Dict\mbox{]} chunks, str prompts\+\_\+path, str gemini\+\_\+model, int top\+\_\+k=5)
+\item 
+Dict \mbox{\hyperlink{namespaceparser_ab69cb3397febf36cea543c2f952d44de}{call\+\_\+gemini}} (str model\+\_\+gemini, List\mbox{[}Dict\mbox{]} messages, float temperature=0.\+0, int max\+\_\+retries=3)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}parser.py
+- Loads prompts from Prompts/prompts_spo_framework.json
+- Builds a TF-IDF index over extracted chunks
+- For each prompt, filter chunks by "run_for" (framework/spo/both),
+  retrieve top_k chunks, create system/user message,
+  and call Groq LLM to produce the output JSON.
+- Exports a list of parsed JSONs (one per prompt).
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespaceparser_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceparser_a0b12654d06f7ea83a3ec6c38db346f93}\index{parser@{parser}!assemble\_context@{assemble\_context}}
+\index{assemble\_context@{assemble\_context}!parser@{parser}}
+\doxysubsubsection{\texorpdfstring{assemble\_context()}{assemble\_context()}}
+{\footnotesize\ttfamily \label{namespaceparser_a0b12654d06f7ea83a3ec6c38db346f93} 
+ str parser.\+assemble\+\_\+context (\begin{DoxyParamCaption}\item[{List\mbox{[}Dict\mbox{]}}]{chunks}{, }\item[{List\mbox{[}int\mbox{]}}]{top\+\_\+indices}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a human-readable context block with source and page metadata.\end{DoxyVerb}
+ \Hypertarget{namespaceparser_a34d250abe9dac9c81e16665c6e909eb2}\index{parser@{parser}!build\_tfidf\_index@{build\_tfidf\_index}}
+\index{build\_tfidf\_index@{build\_tfidf\_index}!parser@{parser}}
+\doxysubsubsection{\texorpdfstring{build\_tfidf\_index()}{build\_tfidf\_index()}}
+{\footnotesize\ttfamily \label{namespaceparser_a34d250abe9dac9c81e16665c6e909eb2} 
+ Dict parser.\+build\+\_\+tfidf\+\_\+index (\begin{DoxyParamCaption}\item[{List\mbox{[}Dict\mbox{]}}]{chunks}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return vectorizer and matrix for search, plus the chunk texts.\end{DoxyVerb}
+ \Hypertarget{namespaceparser_ab69cb3397febf36cea543c2f952d44de}\index{parser@{parser}!call\_gemini@{call\_gemini}}
+\index{call\_gemini@{call\_gemini}!parser@{parser}}
+\doxysubsubsection{\texorpdfstring{call\_gemini()}{call\_gemini()}}
+{\footnotesize\ttfamily \label{namespaceparser_ab69cb3397febf36cea543c2f952d44de} 
+ Dict parser.\+call\+\_\+gemini (\begin{DoxyParamCaption}\item[{str}]{model\+\_\+gemini}{, }\item[{List\mbox{[}Dict\mbox{]}}]{messages}{, }\item[{float }]{temperature}{ = {\ttfamily 0.0}, }\item[{int }]{max\+\_\+retries}{ = {\ttfamily 3}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Call Gemini chat model with retries.
+messages: list of {"role": "system"|"user"|"assistant", "content": str}
+\end{DoxyVerb}
+ \Hypertarget{namespaceparser_acab60c601c5aac8781ad0a5e62d95b66}\index{parser@{parser}!call\_groq@{call\_groq}}
+\index{call\_groq@{call\_groq}!parser@{parser}}
+\doxysubsubsection{\texorpdfstring{call\_groq()}{call\_groq()}}
+{\footnotesize\ttfamily \label{namespaceparser_acab60c601c5aac8781ad0a5e62d95b66} 
+ Dict parser.\+call\+\_\+groq (\begin{DoxyParamCaption}\item[{str}]{model}{, }\item[{List\mbox{[}Dict\mbox{]}}]{messages}{, }\item[{float }]{temperature}{ = {\ttfamily 0.0}, }\item[{int }]{max\+\_\+retries}{ = {\ttfamily 3}}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceparser_a9dd2796b938536ca8fb63b5423bba479}\index{parser@{parser}!parse\_with\_llm@{parse\_with\_llm}}
+\index{parse\_with\_llm@{parse\_with\_llm}!parser@{parser}}
+\doxysubsubsection{\texorpdfstring{parse\_with\_llm()}{parse\_with\_llm()}}
+{\footnotesize\ttfamily \label{namespaceparser_a9dd2796b938536ca8fb63b5423bba479} 
+ List\mbox{[}Dict\mbox{]} parser.\+parse\+\_\+with\+\_\+llm (\begin{DoxyParamCaption}\item[{List\mbox{[}Dict\mbox{]}}]{chunks}{, }\item[{str}]{prompts\+\_\+path}{, }\item[{str }]{groq\+\_\+model}{, }\item[{int }]{top\+\_\+k}{ = {\ttfamily 5}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}chunks: list of dicts from extractor.py
+prompts_path: path to prompts_spo_frameworks.json
+groq_model: Groq model name
+returns: list of dicts { "prompt_id": ..., "result": <parsed json> }
+\end{DoxyVerb}
+ \Hypertarget{namespaceparser_a32f3e62367c5448782f49bb710f41055}\index{parser@{parser}!parse\_with\_llm\_gemini@{parse\_with\_llm\_gemini}}
+\index{parse\_with\_llm\_gemini@{parse\_with\_llm\_gemini}!parser@{parser}}
+\doxysubsubsection{\texorpdfstring{parse\_with\_llm\_gemini()}{parse\_with\_llm\_gemini()}}
+{\footnotesize\ttfamily \label{namespaceparser_a32f3e62367c5448782f49bb710f41055} 
+ List\mbox{[}Dict\mbox{]} parser.\+parse\+\_\+with\+\_\+llm\+\_\+gemini (\begin{DoxyParamCaption}\item[{List\mbox{[}Dict\mbox{]}}]{chunks}{, }\item[{str}]{prompts\+\_\+path}{, }\item[{str}]{gemini\+\_\+model}{, }\item[{int }]{top\+\_\+k}{ = {\ttfamily 5}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}chunks: list of dicts from extractor.py
+prompts_path: path to prompts.json
+gemini_model: Gemini model name (e.g., "gemini-1.5-flash")
+returns: list of dicts { "prompt_id": ..., "result": <parsed json> }
+\end{DoxyVerb}
+ \Hypertarget{namespaceparser_aad5672a986c6d407f5b31c17a8c05b91}\index{parser@{parser}!retrieve\_top\_k@{retrieve\_top\_k}}
+\index{retrieve\_top\_k@{retrieve\_top\_k}!parser@{parser}}
+\doxysubsubsection{\texorpdfstring{retrieve\_top\_k()}{retrieve\_top\_k()}}
+{\footnotesize\ttfamily \label{namespaceparser_aad5672a986c6d407f5b31c17a8c05b91} 
+ List\mbox{[}int\mbox{]} parser.\+retrieve\+\_\+top\+\_\+k (\begin{DoxyParamCaption}\item[{str}]{query}{, }\item[{Dict}]{index}{, }\item[{int }]{k}{ = {\ttfamily 5}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return top-k indices (into index['texts']) most similar to query.\end{DoxyVerb}
+ 

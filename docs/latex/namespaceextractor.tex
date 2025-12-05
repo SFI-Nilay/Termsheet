@@ -1,0 +1,49 @@
+\doxysection{extractor Namespace Reference}
+\hypertarget{namespaceextractor}{}\label{namespaceextractor}\index{extractor@{extractor}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+List\mbox{[}str\mbox{]} \mbox{\hyperlink{namespaceextractor_a33ac0ea371d39344eecf95315392037d}{extract\+\_\+text\+\_\+from\+\_\+pdf}} (str path)
+\item 
+List\mbox{[}str\mbox{]} \mbox{\hyperlink{namespaceextractor_aae04a5ebf2a58e2286d3eaaa15c6d54a}{chunk\+\_\+text}} (str text, int chunk\+\_\+size=2000, int overlap=200)
+\item 
+List\mbox{[}Dict\mbox{]} \mbox{\hyperlink{namespaceextractor_a1b704a34c32dc3cd8d3e5f4117541c06}{extract\+\_\+chunks\+\_\+from\+\_\+termsheet}} (str termsheet\+\_\+pdf, int chunk\+\_\+size=500, int overlap=200, str folder\+\_\+name=None)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}extractor.py
+- extract_text_from_pdf(pdf_path): returns list of pages' text
+- extract_chunks_from_termsheet(termsheet_pdf, chunk_size=2000, overlap=200)
+  returns list of dicts: { "chunk": str, "source": "termsheet", "page": int, "folder": folder_name }
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespaceextractor_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceextractor_aae04a5ebf2a58e2286d3eaaa15c6d54a}\index{extractor@{extractor}!chunk\_text@{chunk\_text}}
+\index{chunk\_text@{chunk\_text}!extractor@{extractor}}
+\doxysubsubsection{\texorpdfstring{chunk\_text()}{chunk\_text()}}
+{\footnotesize\ttfamily \label{namespaceextractor_aae04a5ebf2a58e2286d3eaaa15c6d54a} 
+ List\mbox{[}str\mbox{]} extractor.\+chunk\+\_\+text (\begin{DoxyParamCaption}\item[{str}]{text}{, }\item[{int }]{chunk\+\_\+size}{ = {\ttfamily 2000}, }\item[{int }]{overlap}{ = {\ttfamily 200}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Naive chunking by characters with overlap.\end{DoxyVerb}
+ \Hypertarget{namespaceextractor_a1b704a34c32dc3cd8d3e5f4117541c06}\index{extractor@{extractor}!extract\_chunks\_from\_termsheet@{extract\_chunks\_from\_termsheet}}
+\index{extract\_chunks\_from\_termsheet@{extract\_chunks\_from\_termsheet}!extractor@{extractor}}
+\doxysubsubsection{\texorpdfstring{extract\_chunks\_from\_termsheet()}{extract\_chunks\_from\_termsheet()}}
+{\footnotesize\ttfamily \label{namespaceextractor_a1b704a34c32dc3cd8d3e5f4117541c06} 
+ List\mbox{[}Dict\mbox{]} extractor.\+extract\+\_\+chunks\+\_\+from\+\_\+termsheet (\begin{DoxyParamCaption}\item[{str}]{termsheet\+\_\+pdf}{, }\item[{int }]{chunk\+\_\+size}{ = {\ttfamily 500}, }\item[{int }]{overlap}{ = {\ttfamily 200}, }\item[{str }]{folder\+\_\+name}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Extracts text from a single Term Sheet PDF, chunks per page,
+and returns list of chunk dicts.
+Each dict: {chunk, source="termsheet", page, chunk_index, folder}
+\end{DoxyVerb}
+ \Hypertarget{namespaceextractor_a33ac0ea371d39344eecf95315392037d}\index{extractor@{extractor}!extract\_text\_from\_pdf@{extract\_text\_from\_pdf}}
+\index{extract\_text\_from\_pdf@{extract\_text\_from\_pdf}!extractor@{extractor}}
+\doxysubsubsection{\texorpdfstring{extract\_text\_from\_pdf()}{extract\_text\_from\_pdf()}}
+{\footnotesize\ttfamily \label{namespaceextractor_a33ac0ea371d39344eecf95315392037d} 
+ List\mbox{[}str\mbox{]} extractor.\+extract\+\_\+text\+\_\+from\+\_\+pdf (\begin{DoxyParamCaption}\item[{str}]{path}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return list of page texts (index 0 == page 1). Uses pdfplumber.\end{DoxyVerb}
+ 

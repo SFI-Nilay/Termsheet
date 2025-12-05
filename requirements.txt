@@ -6,7 +6,7 @@ pdfplumber
 pypdf
 scikit-learn
 python-dotenv
-unstract-llmwhisperer
+llmwhisperer-client
 reportlab
 tiktoken
 xlsxwriter
